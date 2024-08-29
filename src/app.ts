@@ -22,18 +22,18 @@ app.use(express.urlencoded({extended:true}));
 app.use(cors());
 app.use(helmet());
 
-app.get('/health', (req:Request, res:Response) => res.send('Server is up'));
+app.get('/healthy', (req:Request, res:Response) => res.send('Server is up'));
 
 //basicAuth middelware
 app.use(
     basicAuth({
-        users:{dct_toys_and_more:'95rhijk'},
+        users:{fashions_and_more:'95rhijk'},
         unauthorizedResponse: 'Access denied',
     })
 );
 
 //protect route 
-app.get('/v2/healthcheck', (req:Request, res:Response)=>{
+app.get('/v3/health', (req:Request, res:Response)=>{
     res.send('server runnn nupppppppppp');
 });
 
