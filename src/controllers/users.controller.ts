@@ -13,6 +13,7 @@ class UserController extends ResponseHandler{
 
         await this.sendResponse(response, res, response.message);
     });
+
 }
 
 export {UserController};
