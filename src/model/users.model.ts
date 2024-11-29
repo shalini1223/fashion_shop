@@ -12,6 +12,12 @@ export interface IUserModel extends Document {
     wishlist:Types.ObjectId[];
     comparePassword(password:string): Promise<boolean>;
     profileImage: string;
+    fullName: string;
+    countryCode:string;
+    mobileNumber:string;
+    isProfileCompleted:boolean;
+    pushToken:string;
+    addressIds: Types.ObjectId[];
 }
 
 const userSchema: Schema<IUserModel>=new Schema(
@@ -36,12 +42,26 @@ const userSchema: Schema<IUserModel>=new Schema(
         accessToken:{
             type:String,
         },
-        wishlist:{
+        wishlist:[{
             type:[mongoose.Schema.Types.ObjectId],
-        },
+            ref: 'sale',
+        },],
         profileImage:{
             type:String,
         },
+        fullName:{
+            type:String,
+        },
+        countryCode:{
+            type:String,
+        },
+        mobileNumber:{
+            type:String,
+        },
+        addressIds:[{
+            type:[mongoose.Schema.Types.ObjectId],
+            ref: 'useraddress',
+        },],
 
     },
     {
