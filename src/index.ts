@@ -4,6 +4,8 @@ dotenv.config({
 });
 import {initLogger} from './config/logger-config';
 
+import {getSecret} from './middlewares/secret-manager/sm';
+
 import {port} from './config';
 
 import connectDb from './db';
